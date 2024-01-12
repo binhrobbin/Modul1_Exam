@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div align="center">
+    <canvas id="myCanvas" width="500" height="500" style="border: 1px solid cornflowerblue">
+        Your browser does not  support the HTML canvas tag.
+    </canvas>
+</div>
+</body>
+</html>
+<script>
+    let c = document.getElementById('myCanvas');
+    let ctx = c.getContext('2d');
+    class Circle {
+        x;
+        y;
+        radius;
+        color;
+
+        constructor(x, y, radius, color) {
+            this.x = x;
+            this.y = y;
+            this.radius = radius;
+            this.color = color;
+        }
+        render () {
+            ctx.beginPath()
+            ctx.fillStyle = this.color
+            ctx.arc(this.x, this.y, this.radius, 0, 2 * Math.PI);
+            ctx.fill()
+            ctx.closePath();
+        }
+    }
+    let canvas = new Circle(50,50,80,'#000000');
+    canvas.render()
+</script>
